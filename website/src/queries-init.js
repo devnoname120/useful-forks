@@ -1,4 +1,4 @@
-const SELF_URL = "https://useful-forks.github.io/";
+const SELF_URL = "https://devnoname120.github.io/useful-forks/";
 
 const JQ_REPO_FIELD  = $('#repo');
 const JQ_FILTER_FIELD = $('#filter');
