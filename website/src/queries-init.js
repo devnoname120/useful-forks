@@ -34,11 +34,11 @@ const UF_MSGS_SCAN_STATE = [
 ];
 
 const EXAMPLE_LINK_1 = `<a href="${buildAutoQueryURL('payne911/PieMenu')}"
-                           onclick="ga_shortExampleLink();">payne911/PieMenu</a>`;
+                           >payne911/PieMenu</a>`;
 const EXAMPLE_LINK_2 = `<a href="${buildAutoQueryURL('https://github.com/payne911/PieMenu')}"
-                           onclick="ga_fullExampleLink();">https://github.com/payne911/PieMenu</a>`;
-const BODY_REPO_LINK = `<a href="${buildGithubRepoURL('useful-forks/useful-forks.github.io')}"
-                           onclick="ga_bodyRepoLink();">the GitHub project</a>`;
+                           >https://github.com/payne911/PieMenu</a>`;
+const BODY_REPO_LINK = `<a href="${buildGithubRepoURL('devnoname120/useful-forks')}"
+                           >the GitHub project</a>`;
 const LANDING_PAGE_INIT_MSG = "<h1 class='title'>Introducing:</h1>"
     + "<img src='assets/useful-forks-banner.png' alt='useful-forks banner' width='500'/><br/><br/>"
     + "It aims at increasing the discoverability of <strong>useful</strong> forks of open-source projects.<br/>"
@@ -56,7 +56,7 @@ const SVG_DATE = '<svg class="octicon octicon-history text-gray" viewBox="0 0 16
 
 function getRepoCol(full_name, isInitialRepo) {
   return SVG_FORK + ` <a href="${buildGithubRepoURL(full_name)}" target="_blank" rel="noopener noreferrer"
-                         onclick="ga_queryResultClick('${full_name}', ${isInitialRepo});">${full_name}</a>`;
+                         ">${full_name}</a>`;
 }
 function getStarCol(num_stars) {
   return SVG_STAR + ' × ' + num_stars;
@@ -79,8 +79,8 @@ function buildGithubRepoURL(repo) {
 }
 
 function getForkButtonLink(qualifier, full_name) {
-  return `<a href="${buildAutoQueryURL(full_name)}" 
-             title="This will launch a (more extensive) scan for the specified repository. The 'Source' is the root project of the whole fork tree, whereas the 'Parent' is the immediate parent. (Therefore, the Source can be the Parent.)" 
+  return `<a href="${buildAutoQueryURL(full_name)}"
+             title="This will launch a (more extensive) scan for the specified repository. The 'Source' is the root project of the whole fork tree, whereas the 'Parent' is the immediate parent. (Therefore, the Source can be the Parent.)"
              class="button is-small is-dark is-outlined">
              <b>${qualifier}:&nbsp;&nbsp;</b>
              <span class="is-family-monospace">${full_name}</span>
