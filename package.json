@@ -1,9 +1,9 @@
 {
   "name": "useful-forks-website",
   "description": "List of dependencies used by the Useful Forks website.",
-  "homepage": "https://devnoname120.github.io/useful-forks",
+  "homepage": "https://devnoname120.github.io/useful-forks/",
   "version": "1.0.0",
-  "author": "Jérémi Grenier-Berthiaume",
+  "author": "devnoname120",
   "license": "MIT",
   "scripts": {
     "dev": "webpack --mode=development --config webpack.config.js",
@@ -14,7 +14,7 @@
     "@octokit/plugin-throttling": "^4.3.2"
   },
   "devDependencies": {
-    "webpack": "^5.76.0",
+    "webpack": "^5.94.0",
     "webpack-cli": "^5.0.0"
   },
   "repository": {

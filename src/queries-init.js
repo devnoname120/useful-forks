@@ -1,4 +1,4 @@
-const SELF_URL = "https://devnoname120.github.io/useful-forks";
+const SELF_URL = "https://devnoname120.github.io/useful-forks/";
 
 const JQ_REPO_FIELD  = $('#repo');
 const JQ_FILTER_FIELD = $('#filter');
@@ -79,8 +79,8 @@ function buildGithubRepoURL(repo) {
 }
 
 function getForkButtonLink(qualifier, full_name) {
-  return `<a href="${buildAutoQueryURL(full_name)}" 
-             title="This will launch a (more extensive) scan for the specified repository. The 'Source' is the root project of the whole fork tree, whereas the 'Parent' is the immediate parent. (Therefore, the Source can be the Parent.)" 
+  return `<a href="${buildAutoQueryURL(full_name)}"
+             title="This will launch a (more extensive) scan for the specified repository. The 'Source' is the root project of the whole fork tree, whereas the 'Parent' is the immediate parent. (Therefore, the Source can be the Parent.)"
              class="button is-small is-dark is-outlined">
              <b>${qualifier}:&nbsp;&nbsp;</b>
              <span class="is-family-monospace">${full_name}</span>
@@ -162,23 +162,15 @@ function disableQueryFields() {
   JQ_SEARCH_BTN.removeClass('is-loading');
 }
 
-function getQueryOrDefault(defaultVal) {
-  if (!JQ_REPO_FIELD.val()) {
-    JQ_REPO_FIELD.val(defaultVal);
-  }
-
-  const val = JQ_REPO_FIELD.val();
-
-  const isShorthand = /^[\w\.-]+\/[\w\.-]+$/;
-  if (isShorthand.test(val)) {
-    return val;
-  } else {
-    return new URL(val).pathname;
-  }
-}
-
 function setQuery(query) {
   JQ_REPO_FIELD.val(query);
+}
+
+function getQueryOrDefault(defaultVal) {
+  if (!JQ_REPO_FIELD.val()) {
+    setQuery(defaultVal);
+  }
+  return JQ_REPO_FIELD.val();
 }
 
 function hideFilterContainer() {
@@ -214,7 +206,7 @@ function getRepoNameFromUrl() {
 function landingPageTrigger() {
   const query = getRepoNameFromUrl();
   if (query) {
-    JQ_REPO_FIELD.val(query);
+    setQuery(query);
     return "";
   } else {
     return LANDING_PAGE_INIT_MSG;
